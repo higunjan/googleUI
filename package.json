@@ -1,10 +1,11 @@
 {
-    "name"        : "application-name",
+    "name"        : "applicationname",
     "version"     : "0.0.1",
-    "private"     : true,
+    "description": "Google API demo",
     "scripts": {
       "start": "node app.js"
     },
+    "author": "Gunjan <patelgunjan777@gmail.com>",
     "dependencies": {
         "async"               : "*",
         "bcryptjs"            : "*",
@@ -14,9 +15,6 @@
         "express"             : "3.4.0",
         "fs-extra"            : "^0.12.0",
         "graceful-fs"         : "^3.0.5",
-        "mongodb"             : "*",
-        "mongoose"            : "*",
-        "mongoose-redis-cache": "*",
         "request"             : "*",
         "string"              : "*",
         "debug"               : "~0.7.4",
