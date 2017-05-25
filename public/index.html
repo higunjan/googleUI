@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Registration Details</title>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAUKaLvGNay9FMkC4XpDblX3F703av0X4M"></script>
+
+      <script type="text/javascript" src="javascript/script.js"></script>
+      <style type="text/css">
+        html ,body ,#map-canvas{height:50%;margin: 0;padding: 0;}
+      </style>
+      <link href="/css/style.css" rel="stylesheet" type="text/css">
+   </head>
+   <body ng-app="myApp" ng-controller="firstController" ng-init="loadfun()">
+      <!-- container start -->
+       <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><b>Pole - Admin Panel</b></a>
+          </div>
+          <br>
+          <ul class="nav navbar-nav">
+            <li><a href="#">Sparks</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Notifications</a></li>
+             <li><a href="#">Scheduling</a></li>
+             <li class="active"><a href="#">Partners</a></li>
+              <li><a href="#">Events</a></li>
+               <li><a href="#">ADMINS</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+      <div id="container">
+            <div class="col-md-6" style="background-color:white;height:50%;width:50%;">
+                 <div class="jumbotron" style="padding-top: 10px;padding-bottom: 20px;padding-left: 10px;font-size: 25px;">{{Description.name.replace(',','')}} <span class="glyphicon glyphicon-pencil" style="margin-left: 10px;"></span>
+                 <img class="img-circle" src="http://res.cloudinary.com/poletalks/image/upload/v1472055369/Nitc_my3vig.jpg" style="height:60px;width:60px;margin-left: 330px;"/></div>
+                 <div>
+                   <b>{{Description.store_type}}</b>
+                   <br>
+                   <br>
+                   <br>
+                   <b>{{Description.description}}</b>
+                    <br>
+                   <br>
+                   <br>
+                 
+                   <b>{{Description.formatted_address}}</b>
+                 </div>
+                 <br>
+            </div>
+
+            <div class="col-md-6">
+              <div id="map-canvas" style="padding-left:20px;width:100%;height:370px;"></div>
+            </div>
+            <br>
+            <br>
+            <div id="display" class="col-md-12" >
+               <div ng-model="detailsData" style="padding-top: 100px;">
+                  <table class="table" style="width:1070px;background-color:white;" id="tableview">
+                     <thead>
+                        <tr>
+                           <th>ADMIN</th>
+                           <th>Type</th>
+                           <th>Name</th>
+                           <th>SHORT NAME</th>
+                           <th>ACTIONS</th>
+                        </tr>
+                     </thead>
+                     <tr ng-repeat="n in details">
+                        <input value='{{n._id}}' ng-model="updateId" type="hidden">
+                        <td>{{n.login_id}}</td>
+                        <td>{{n.type}}</td>
+                        <td>{{n.name}}</td>
+                        <td>{{n.short_name}}</td>
+                        <td>
+                           <button id="{{n._id}}" class="submit" ng-click="editData(n._id)"> <span class="glyphicon glyphicon-menu-down"></span></button>
+                           <button id="{{n._id}}" class="submit1" ng-click="deleteData(n._id)"> <span  style="color:red" class="glyphicon glyphicon-trash"></span></button>
+                        </td>
+                     </tr>
+                  </table>
+               </div>
+            </div>
+      </div>
+   </body>
+</html>
