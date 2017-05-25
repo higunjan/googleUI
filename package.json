@@ -2,6 +2,7 @@
     "name"        : "applicationname",
     "version"     : "0.0.1",
     "description": "Google API demo",
+    "main": "app.js",
     "scripts": {
       "start": "node app.js"
     },
